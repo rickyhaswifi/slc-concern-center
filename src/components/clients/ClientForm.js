@@ -62,7 +62,7 @@ const ContactForm = (props) => {
 
   return (
     <>
-      <Form onSubmit={handleFormSubmit}>
+      <Form onSubmit={handleFormSubmit} name="clients" method="POST" data-netlify="true">
         <Form.Input
           fluid
           label="First name"
