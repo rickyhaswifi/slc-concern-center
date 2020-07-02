@@ -66,28 +66,26 @@ const VendorDetail = ({ match }) => {
         />
       ) : (
         <>
-          <Card fluid color="teal">
+          <Card fluid color="orange">
             <Card.Content>
-              {/* <Image
-                size="tiny"
-                floated="left"
-                src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
-                wrapped
-                ui={true}
-              /> */}
-              <Header as="h1">{vendor.fullName}</Header>
+              <Header as="h1">{vendor.companyName}</Header>
               <Divider />
-             
               <Icon name="calendar" />
-              Date of Birth: {vendor.dob} <br />
-              <Icon name="user" />
-              Gender: {vendor.gender} <br />
+              Rep Name: {vendor.fullName} <br />
               <Icon name="mail" />
               Email: {vendor.email} <br />
               <Icon name="phone" />
-              {vendor.mobile} <br />
+              Phone: {vendor.mobile} <br />
               <Divider />
- 
+              <Card.Content>
+                <Header as="h3">Services</Header>
+                <p>{vendor.services}</p>
+              </Card.Content>
+              <Divider />
+              <Card.Content>
+                <Header as="h3">Notes</Header>
+                <p>{vendor.notes}</p>
+              </Card.Content>
             </Card.Content>
           </Card>
 

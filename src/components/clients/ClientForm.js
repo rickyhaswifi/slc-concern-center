@@ -16,8 +16,8 @@ const ContactForm = (props) => {
   };
 
   const optionsGender = [
-    { key: "m", text: "Male", value: "Male" },
     { key: "f", text: "Female", value: "Female" },
+    { key: "m", text: "Male", value: "Male" },
     { key: "o", text: "Other", value: "Other" },
   ];
 

@@ -20,7 +20,9 @@ const Vendors = () => {
   React.useEffect(() => {
     const results = Object.keys(vendorObjects).filter(
       (id) =>
-      vendorObjects[id].fullName.toLowerCase().includes(searchTerm)
+      vendorObjects[id].repName.toLowerCase().includes(searchTerm) ||
+      vendorObjects[id].companyName.toLowerCase().includes(searchTerm) || 
+      vendorObjects[id].mobile.includes(searchTerm) 
     );
     setSearchResults(results);
   }, [vendorObjects, searchTerm]);
@@ -82,14 +84,15 @@ const Vendors = () => {
 
       <hr />
 
-      <h2>Client Total: {searchResults.length}</h2>
+      <h2>Vendor Total: {searchResults.length}</h2>
       <Table>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Full Name</Table.HeaderCell>
+            <Table.HeaderCell>Company Name</Table.HeaderCell>
+            <Table.HeaderCell>Rep Name</Table.HeaderCell>
             <Table.HeaderCell>mobile</Table.HeaderCell>
             <Table.HeaderCell>email</Table.HeaderCell>
-            <Table.HeaderCell>DOB</Table.HeaderCell>
+            <Table.HeaderCell>Services</Table.HeaderCell>
             <Table.HeaderCell>Details</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
@@ -97,10 +100,11 @@ const Vendors = () => {
           {(searchResults).map((id) => {
             return (
               <Table.Row key={id}>
-                <Table.Cell>{vendorObjects[id].fullName}</Table.Cell>
+                <Table.Cell>{vendorObjects[id].companyName}</Table.Cell>
+                <Table.Cell>{vendorObjects[id].repName}</Table.Cell>
                 <Table.Cell>{vendorObjects[id].mobile}</Table.Cell>
                 <Table.Cell>{vendorObjects[id].email}</Table.Cell>
-                <Table.Cell>{vendorObjects[id].dob}</Table.Cell>
+                <Table.Cell>{vendorObjects[id].services}</Table.Cell>
                 <Table.Cell>
                   <Link
                     to={`vendor/${id}`}

@@ -18,38 +18,38 @@ const shifts = [
 ];
 
 const faith = [
-  { key: "christian", text: "Christian", value: "christian" },
-  { key: "catholic", text: "Catholic", value: "catholic" },
-  { key: "lds", text: "LDS", value: "lds" },
-  { key: "unaffiliated", text: "Unaffiliated", value: "unaffiliated" },
+  { key: "christian", text: "Christian", value: "Christian" },
+  { key: "catholic", text: "Catholic", value: "Catholic" },
+  { key: "lds", text: "LDS", value: "LDS" },
+  { key: "unaffiliated", text: "Unaffiliated", value: "Unaffiliated" },
 ];
 
 const ministry = [
-  { key: "interviewing", text: "Interviewing", value: "interviewing" },
-  { key: "truckunloader", text: "Truck Unloader", value: "truckunloaded" },
-  { key: "stocker", text: "Stocker", value: "stocker" },
+  { key: "interviewing", text: "Interviewing", value: "Interviewing" },
+  { key: "truckunloader", text: "Truck Unloader", value: "Truck Unloader" },
+  { key: "stocker", text: "Stocker", value: "Stocker" },
   {
     key: "shoppingassistance",
     text: "Shopping Assistance",
-    value: "shoppingassistance",
+    value: "Shopping Assistance",
   },
   {
     key: "donationsorting",
     text: "Donation Sorting",
-    value: "donationsorting",
+    value: "Donation Sorting",
   },
 ];
 
 const optionsGender = [
-  { key: "m", text: "Male", value: "Male" },
   { key: "f", text: "Female", value: "Female" },
+  { key: "m", text: "Male", value: "Male" },
   { key: "o", text: "Other", value: "Other" },
 ];
 
 const civilrights = [
-  { key: "c", text: "Completed", value: "completed" },
-  { key: "n", text: "Not Completed", value: "notcompleted" },
-  { key: "i", text: "In Progress", value: "inprogress" },
+  { key: "c", text: "Completed", value: "Completed" },
+  { key: "n", text: "Not Completed", value: "Not Completed" },
+  { key: "i", text: "In Progress", value: "In Progress" },
 ];
 
 const VolunteerForm = (props) => {

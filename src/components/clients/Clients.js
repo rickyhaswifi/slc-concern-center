@@ -30,7 +30,7 @@ console.log(searchTerm)
 
   //search DATE logic
   const [searchDate, setSearchDate] = React.useState("");
-  //const [searchDateResults, setSearchDateResults] = React.useState([]);
+  const [searchDateResults, setSearchDateResults] = React.useState([]);
   const handleDateChange = (event) => {
     setSearchDate(event.target.value);
   };
@@ -71,7 +71,7 @@ console.log(searchTerm)
 
   return (
     <>
-        <Breadcrumb>
+    <Breadcrumb>
     <Breadcrumb.Section href='/'>Home</Breadcrumb.Section>
     <Breadcrumb.Divider />
     <Breadcrumb.Section >Clients</Breadcrumb.Section>
