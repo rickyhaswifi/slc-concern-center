@@ -40,15 +40,6 @@ const VendorForm = (props) => {
     });
   };
 
-  // DROPDOWNS
-  const handleDropdownChange = (e, result) => {
-    const { name, value } = result;
-    setValues({
-      ...values,
-      [name]: value,
-    });
-  };
-
   const handleFormSubmit = (e) => {
     e.preventDefault();
     props.addOrEditVendor(values);
