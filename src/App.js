@@ -2,6 +2,7 @@ import React from 'react';
 // ASSETS
 import './App.css';
 import Nav from './components/shared/nav';
+import Footer from './components/shared/footer';
 import { Container } from 'semantic-ui-react'
 import {Switch, Route } from 'react-router-dom';
 
@@ -32,7 +33,7 @@ function App() {
       <AuthProvider>
         <Nav />
         <Container fluid>
-          <Container>
+          <Container style={{ padding: '0em 0em 4em 0em' }}>
             <Switch>
               <PrivateRoute exact path="/" component={HomePage} />
               <Route exact path="/login" component={Login} />
@@ -64,6 +65,7 @@ function App() {
             </Switch>
           </Container>
         </Container>
+        <Footer/>
       </AuthProvider>
     </>
   );

@@ -68,7 +68,10 @@ const ClientAddForm = () => {
     <>
 
     <h1>Clients</h1>
-
+    <p>
+    Please come in to set an appointment. A photo I.D. is required for "head of household" as well as "proof of address" - i.e. utility bill, etc.
+Birthdates are required for ALL family members.
+    </p>
 
     <hr />
     <h2>Add New Client</h2>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { database } from "../../firebase";
 import { Link } from "react-router-dom";
 import VendorDetail from "./VendorDetail";
-import { Button, Divider, Input, Segment, Table } from "semantic-ui-react";
+import { Button, Divider, Input, Segment, Table, Breadcrumb } from "semantic-ui-react";
 
 const Vendors = () => {
   // function controller for fireDB
@@ -56,7 +56,11 @@ const Vendors = () => {
 
   return (
     <>
-      <h1>Concern Center Vendors</h1>
+    <Breadcrumb size='huge'>
+    <Breadcrumb.Section href='/'>Dashboard</Breadcrumb.Section>
+    <Breadcrumb.Divider icon='right chevron' />
+    <Breadcrumb.Section >Vendors</Breadcrumb.Section>
+    </Breadcrumb>
 
       <Segment basic textAlign="center">
         <Input

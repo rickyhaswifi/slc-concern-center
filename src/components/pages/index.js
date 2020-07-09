@@ -10,7 +10,9 @@ class HomePage extends Component {
     return (
       <>
         <Header as='h1'>Concern Center Dashboard</Header>
-
+      <p>
+      The Concern Center is a food pantry and clothes closet that serves families in need on a monthly or emergency basis.
+      </p>
       <Grid stackable>
         <Grid.Row columns={2}>
           <Grid.Column>

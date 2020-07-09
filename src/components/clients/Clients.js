@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { database } from "../../firebase";
 import { Link } from "react-router-dom";
-import ClientDetail from "./ClientDetail";
-import { Button, Divider, Input, Segment, Table, Breadcrumb } from "semantic-ui-react";
+import { Header, Button, Divider, Input, Segment, Table, Breadcrumb } from "semantic-ui-react";
 
 const Clients = () => {
   // function controller for fireDB
   var [clientObjects, setClientObjects] = useState({});
 
   // function controller for CRUD
-  var [currentId, setCurrentId] = useState("");
+ // var [currentId, setCurrentId] = useState("");
 
   // search logic
   const [searchTerm, setSearchTerm] = React.useState("");
@@ -30,7 +29,7 @@ console.log(searchTerm)
 
   //search DATE logic
   const [searchDate, setSearchDate] = React.useState("");
-  //const [searchDateResults, setSearchDateResults] = React.useState([]);
+  // const [searchDateResults, setSearchDateResults] = React.useState([]);
   const handleDateChange = (event) => {
     setSearchDate(event.target.value);
   };
@@ -53,27 +52,11 @@ console.log(searchTerm)
     });
   }, []); // similar to component did mount
 
-  const addOrEdit = (obj) => {
-    if (currentId === "") {
-      //save
-      database.child("clients").push(obj, (err) => {
-        if (err) console.log(err);
-        else setCurrentId("");
-      });
-    } else {
-      //editing
-      database.child(`clients/${currentId}`).set(obj, (err) => {
-        if (err) console.log(err);
-        else setCurrentId("");
-      });
-    }
-  };
-
   return (
     <>
-    <Breadcrumb>
-    <Breadcrumb.Section href='/'>Home</Breadcrumb.Section>
-    <Breadcrumb.Divider />
+    <Breadcrumb size='huge'>
+    <Breadcrumb.Section href='/'>Dashboard</Breadcrumb.Section>
+    <Breadcrumb.Divider icon='right chevron' />
     <Breadcrumb.Section >Clients</Breadcrumb.Section>
   </Breadcrumb>
 
@@ -81,7 +64,7 @@ console.log(searchTerm)
         <Input
           //action={{ color: 'blue', content: 'Search' }}
           icon="search"
-          label="Search"
+          //label="Search"
           labelPosition="right"
           iconPosition="left"
           placeholder="Name, Email or Phone #"
@@ -98,6 +81,18 @@ console.log(searchTerm)
           value={searchDate}
           onChange={handleDateChange}
         />
+                {/* <div class="field">
+            <label>Date of Birth</label>
+
+            <input
+            className=''
+              name="dob"
+              type="date"
+              value={searchDate}
+              placeholder="12/24/1965"
+              onChange={handleDateChange}
+            />
+          </div> */}
 
         <Divider horizontal>Or</Divider>
 
@@ -111,9 +106,9 @@ console.log(searchTerm)
         </Link>
       </Segment>
 
-      <hr />
+      <Divider />
 
-      <h2>Client Total: {searchResults.length}</h2>
+      <Header as='h2'>Client Total: {searchResults.length}</Header>
       <Table>
         <Table.Header>
           <Table.Row>
@@ -125,25 +120,18 @@ console.log(searchTerm)
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {(searchResults).map((id) => {
+        {(searchResults).map((id) => {
             return (
+          //     <div key={id}>
+          // {(searchDateResults).map((id) => {
+          //   return (
               <Table.Row key={id}>
                 <Table.Cell>{clientObjects[id].fullName}</Table.Cell>
                 <Table.Cell>{clientObjects[id].mobile}</Table.Cell>
                 <Table.Cell>{clientObjects[id].email}</Table.Cell>
                 <Table.Cell>{clientObjects[id].dob}</Table.Cell>
                 <Table.Cell>
-                  <Link
-                    to={`client/${id}`}
-                    render={
-                      <ClientDetail
-                        key={clientObjects[id]}
-                        {...id}
-                        addOrEdit={addOrEdit}
-                        {...{ currentId, clientObjects, addOrEdit }}
-                      />
-                    }
-                  >
+                  <Link to={`client/${id}`}>
                     <Button color="teal" icon="info" />
                   </Link>
 
@@ -152,6 +140,9 @@ console.log(searchTerm)
               </Table.Row>
             );
           })}
+          {/* </div>
+            );
+          })} */}
         </Table.Body>
       </Table>
 
